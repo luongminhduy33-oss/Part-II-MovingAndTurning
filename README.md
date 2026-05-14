@@ -7,6 +7,7 @@ The relationship is similar to how:
 - The **human brain** → sends signals
 - Signals through the **nervous system** → to the muscles
 - Which then **performs** movement
+
 In robotics:
 - **Microcontroller** → sends commands
 - **Motor drivers** receives → power control
