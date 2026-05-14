@@ -1,0 +1,29 @@
+#define ENC_L 2
+#define ENC_R 3
+
+volatile int LeftEc = 0; //volatile reminds the compiler that this variable can change unexpectedly so it needs to be checked constantly
+volatile int RightEc = 0;
+
+void isLeftEc() { LeftEc++; }
+void isRightEc() { RightEc++; }
+
+void setup() {
+  pinMode(ENC_L, INPUT_PULLUP);
+  pinMode(ENC_R, INPUT_PULLUP);
+
+  attachInterrupt(digitalPinToInterrupt(ENC_L), isLeftEc,RISING); //digitalPinToInterrupt() - set the designated pin into interrupt pin
+  attachInterrupt(digitalPinToInterrupt(ENC_R), isRightEc,RISING);
+  
+}
+
+void travelDistance() {
+  noInterrupts();
+  long currentDistance = (LeftEc + RightEc) / 2.0;
+  interrupts();
+  if(currentDistance - previousDistance >= (targettedPulses - glidePulses) ) {
+    previousDistance = currentDistance;
+    stopMotor();
+  }
+
+  setMotor();
+} 
