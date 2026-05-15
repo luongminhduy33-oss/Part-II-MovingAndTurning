@@ -1,4 +1,4 @@
-# **Part-II-MovingAndTurning**
+# **Part-II-Moving-and-turning (Using encoders)**
 # **II.1/ Straight movements**
 ***Microcontrollers*** (Arduino Nano, ESP32, STM32, ...) play a role as a brain of electronic devices. 
 ***A motor driver*** such as the L298N or DRV8833 controls the motors by receiving commands from the microcontroller.
